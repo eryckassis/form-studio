@@ -3,7 +3,7 @@
  * Handles all animation operations
  */
 
-import { ANIMATION_CONFIG, FRAMER_CONFIG } from '../config/constants.js';
+import { ANIMATION_CONFIG, FRAMER_CONFIG } from "../config/constants.js";
 
 class AnimationService {
   constructor() {
@@ -21,10 +21,10 @@ class AnimationService {
    */
   initialize(animatorInstance) {
     if (this.isInitialized) {
-      console.warn('AnimationService already initialized');
+      console.warn("AnimationService already initialized");
       return;
     }
-    
+
     this.animator = animatorInstance;
     this.isInitialized = true;
   }
@@ -42,7 +42,7 @@ class AnimationService {
    * @returns {boolean}
    */
   prefersReducedMotion() {
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
   /**
@@ -54,7 +54,7 @@ class AnimationService {
       const element = document.getElementById(FRAMER_CONFIG.APPEAR_CONTENT_ID);
       return element ? JSON.parse(element.text) : null;
     } catch (error) {
-      console.warn('Failed to parse appear animations content', error);
+      console.warn("Failed to parse appear animations content", error);
       return null;
     }
   }
@@ -68,7 +68,7 @@ class AnimationService {
       const element = document.getElementById(FRAMER_CONFIG.BREAKPOINTS_ID);
       return element ? JSON.parse(element.text) : null;
     } catch (error) {
-      console.warn('Failed to parse breakpoints', error);
+      console.warn("Failed to parse breakpoints", error);
       return null;
     }
   }
@@ -95,12 +95,13 @@ class AnimationService {
       return;
     }
 
-    const shouldReduceMotion = respectReducedMotion && this.prefersReducedMotion();
+    const shouldReduceMotion =
+      respectReducedMotion && this.prefersReducedMotion();
 
     requestAnimationFrame(() => {
-      const startMark = 'framer-appear-start';
+      const startMark = "framer-appear-start";
       const eventDetail = { detail: { bg: document.hidden } };
-      
+
       performance.mark(startMark, eventDetail);
 
       this.animator.animateAppearEffects(
@@ -124,9 +125,9 @@ class AnimationService {
         this.animator.getActiveVariantHash(breakpoints)
       );
 
-      const endMark = 'framer-appear-end';
+      const endMark = "framer-appear-end";
       performance.mark(endMark, eventDetail);
-      performance.measure('framer-appear', {
+      performance.measure("framer-appear", {
         start: startMark,
         end: endMark,
         detail: eventDetail.detail,
@@ -141,7 +142,7 @@ class AnimationService {
    */
   spring(options = {}) {
     if (!this.isInitialized) {
-      console.warn('AnimationService not initialized');
+      console.warn("AnimationService not initialized");
       return null;
     }
     return this.animator.spring(options);

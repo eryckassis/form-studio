@@ -20,9 +20,9 @@ class DOMService {
    */
   createElement(tag, attributes = {}, parent = null) {
     const element = document.createElement(tag);
-    
+
     Object.entries(attributes).forEach(([key, value]) => {
-      if (key === 'textContent' || key === 'innerHTML') {
+      if (key === "textContent" || key === "innerHTML") {
         element[key] = value;
       } else {
         element.setAttribute(key, value);
@@ -76,9 +76,9 @@ class DOMService {
    */
   addEventListener(element, event, handler, options = {}) {
     if (!element) return () => {};
-    
+
     element.addEventListener(event, handler, options);
-    
+
     return () => element.removeEventListener(event, handler, options);
   }
 
@@ -89,12 +89,13 @@ class DOMService {
    */
   isInViewport(element) {
     if (!element) return false;
-    
+
     const rect = element.getBoundingClientRect();
     return (
       rect.top >= 0 &&
       rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }

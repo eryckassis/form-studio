@@ -69,7 +69,7 @@ export const lazy = (fn) => {
  * @returns {boolean}
  */
 export const isNumericArray = (value) => {
-  return Array.isArray(value) && typeof value[0] === 'number';
+  return Array.isArray(value) && typeof value[0] === "number";
 };
 
 /**

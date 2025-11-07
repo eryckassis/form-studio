@@ -3,8 +3,8 @@
  * Handles locale preferences caching
  */
 
-import StorageService from '../services/StorageService.js';
-import { STORAGE_KEYS } from '../config/constants.js';
+import StorageService from "../services/StorageService.js";
+import { STORAGE_KEYS } from "../config/constants.js";
 
 export class LocaleCache {
   constructor() {
@@ -16,7 +16,7 @@ export class LocaleCache {
    */
   init() {
     if (this.initialized) {
-      console.warn('LocaleCache already initialized');
+      console.warn("LocaleCache already initialized");
       return;
     }
 
@@ -29,7 +29,7 @@ export class LocaleCache {
    */
   cacheLocalePreference() {
     const urlParams = new URLSearchParams(window.location.search);
-    const locale = urlParams.get('locale');
+    const locale = urlParams.get("locale");
 
     if (locale) {
       this.setLocale(locale);

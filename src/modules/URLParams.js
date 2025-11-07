@@ -75,7 +75,7 @@ export class URLParams {
   updateURL() {
     const url = new URL(window.location);
     url.search = this.params.toString();
-    window.history.replaceState({}, '', url);
+    window.history.replaceState({}, "", url);
   }
 }
 

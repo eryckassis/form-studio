@@ -3,7 +3,7 @@
  * Handles nested link navigation with proper event handling
  */
 
-import DOMService from '../services/DOMService.js';
+import DOMService from "../services/DOMService.js";
 
 export class NestedLinks {
   constructor() {
@@ -16,7 +16,7 @@ export class NestedLinks {
    */
   init() {
     if (this.initialized) {
-      console.warn('NestedLinks already initialized');
+      console.warn("NestedLinks already initialized");
       return;
     }
 
@@ -28,24 +28,24 @@ export class NestedLinks {
    * Setup link event handlers
    */
   setupLinkHandlers() {
-    const links = DOMService.querySelectorAll('a[href]:not([data-hydrated])');
+    const links = DOMService.querySelectorAll("a[href]:not([data-hydrated])");
 
     links.forEach((link) => {
       const clickCleanup = DOMService.addEventListener(
         link,
-        'click',
+        "click",
         this.handleClick.bind(this)
       );
-      
+
       const auxclickCleanup = DOMService.addEventListener(
         link,
-        'auxclick',
+        "auxclick",
         this.handleAuxClick.bind(this)
       );
-      
+
       const keydownCleanup = DOMService.addEventListener(
         link,
-        'keydown',
+        "keydown",
         this.handleKeydown.bind(this)
       );
 
@@ -59,7 +59,7 @@ export class NestedLinks {
    */
   handleClick(event) {
     const link = event.currentTarget;
-    
+
     if (link.dataset.hydrated) {
       return;
     }
@@ -67,18 +67,18 @@ export class NestedLinks {
     event.preventDefault();
     event.stopPropagation();
 
-    const href = link.getAttribute('href');
+    const href = link.getAttribute("href");
     if (!href) return;
 
     const isModifierPressed = this.isModifierKeyPressed(event);
-    
+
     if (isModifierPressed) {
-      this.openLink(href, '', '_blank');
+      this.openLink(href, "", "_blank");
       return;
     }
 
-    const rel = link.getAttribute('rel') || '';
-    const target = link.getAttribute('target') || '';
+    const rel = link.getAttribute("rel") || "";
+    const target = link.getAttribute("target") || "";
     this.openLink(href, rel, target);
   }
 
@@ -88,7 +88,7 @@ export class NestedLinks {
    */
   handleAuxClick(event) {
     const link = event.currentTarget;
-    
+
     if (link.dataset.hydrated) {
       return;
     }
@@ -96,9 +96,9 @@ export class NestedLinks {
     event.preventDefault();
     event.stopPropagation();
 
-    const href = link.getAttribute('href');
+    const href = link.getAttribute("href");
     if (href) {
-      this.openLink(href, '', '_blank');
+      this.openLink(href, "", "_blank");
     }
   }
 
@@ -108,21 +108,21 @@ export class NestedLinks {
    */
   handleKeydown(event) {
     const link = event.currentTarget;
-    
+
     if (link.dataset.hydrated) {
       return;
     }
 
-    if (event.key !== 'Enter') return;
+    if (event.key !== "Enter") return;
 
     event.preventDefault();
     event.stopPropagation();
 
-    const href = link.getAttribute('href');
+    const href = link.getAttribute("href");
     if (!href) return;
 
-    const rel = link.getAttribute('rel') || '';
-    const target = link.getAttribute('target') || '';
+    const rel = link.getAttribute("rel") || "";
+    const target = link.getAttribute("target") || "";
     this.openLink(href, rel, target);
   }
 
@@ -133,11 +133,11 @@ export class NestedLinks {
    * @param {string} target - Target attribute
    */
   openLink(href, rel, target) {
-    const anchor = document.createElement('a');
+    const anchor = document.createElement("a");
     anchor.href = href;
     anchor.target = target;
     anchor.rel = rel;
-    
+
     document.body.appendChild(anchor);
     anchor.click();
     anchor.remove();

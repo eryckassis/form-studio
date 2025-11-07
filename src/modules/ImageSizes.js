@@ -3,8 +3,8 @@
  * Handles responsive image sizing
  */
 
-import DOMService from '../services/DOMService.js';
-import { throttle } from '../utils/helpers.js';
+import DOMService from "../services/DOMService.js";
+import { throttle } from "../utils/helpers.js";
 
 export class ImageSizes {
   constructor() {
@@ -18,14 +18,14 @@ export class ImageSizes {
    */
   init() {
     if (this.initialized) {
-      console.warn('ImageSizes already initialized');
+      console.warn("ImageSizes already initialized");
       return;
     }
 
     this.findImages();
     this.updateAllSizes();
     this.setupResizeObserver();
-    
+
     this.initialized = true;
   }
 
@@ -54,9 +54,9 @@ export class ImageSizes {
 
     const width = img.offsetWidth;
     const sizes = this.calculateSizes(width);
-    
-    if (img.getAttribute('sizes') !== sizes) {
-      img.setAttribute('sizes', sizes);
+
+    if (img.getAttribute("sizes") !== sizes) {
+      img.setAttribute("sizes", sizes);
     }
   }
 
@@ -81,7 +81,7 @@ export class ImageSizes {
 
     this.resizeCleanup = DOMService.addEventListener(
       window,
-      'resize',
+      "resize",
       handleResize
     );
   }

@@ -3,9 +3,9 @@
  * Handles Framer editor initialization
  */
 
-import StorageService from '../services/StorageService.js';
-import DOMService from '../services/DOMService.js';
-import { STORAGE_KEYS, FRAMER_CONFIG } from '../config/constants.js';
+import StorageService from "../services/StorageService.js";
+import DOMService from "../services/DOMService.js";
+import { STORAGE_KEYS, FRAMER_CONFIG } from "../config/constants.js";
 
 export class FramerEditor {
   constructor() {
@@ -17,7 +17,7 @@ export class FramerEditor {
    */
   init() {
     if (this.initialized) {
-      console.warn('FramerEditor already initialized');
+      console.warn("FramerEditor already initialized");
       return;
     }
 
@@ -42,9 +42,9 @@ export class FramerEditor {
     }
 
     const link = DOMService.createElement(
-      'link',
+      "link",
       {
-        rel: 'modulepreload',
+        rel: "modulepreload",
         href: FRAMER_CONFIG.EDITOR_INIT_URL,
       },
       document.head

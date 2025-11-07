@@ -3,8 +3,8 @@
  * Handles all appear animation logic
  */
 
-import AnimationService from '../services/AnimationService.js';
-import { ANIMATION_CONFIG } from '../config/constants.js';
+import AnimationService from "../services/AnimationService.js";
+import { ANIMATION_CONFIG } from "../config/constants.js";
 
 export class AppearAnimations {
   constructor() {
@@ -23,7 +23,7 @@ export class AppearAnimations {
     respectReducedMotion = ANIMATION_CONFIG.REDUCED_MOTION
   ) {
     if (this.initialized) {
-      console.warn('AppearAnimations already initialized');
+      console.warn("AppearAnimations already initialized");
       return;
     }
 

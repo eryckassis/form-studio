@@ -62,7 +62,7 @@ class StorageService {
    */
   isAvailable() {
     try {
-      const test = '__storage_test__';
+      const test = "__storage_test__";
       localStorage.setItem(test, test);
       localStorage.removeItem(test);
       return true;
@@ -79,7 +79,7 @@ class StorageService {
   getJSON(key) {
     const value = this.get(key);
     if (!value) return null;
-    
+
     try {
       return JSON.parse(value);
     } catch (error) {
