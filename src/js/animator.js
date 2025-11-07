@@ -1,9 +1,3 @@
-/**
- * Framer Animator
- * Complete animation engine with spring physics, easing functions, and optimized animations
- * This is a complex animation library that handles all Framer motion animations
- */
-
 var animator = (() => {
   // Utility functions
   var k = (e, t, r) => (r > t ? t : r < e ? e : r);
@@ -26,7 +20,6 @@ var animator = (() => {
   var q = { value: null, addProjectionMetrics: null };
   var Z = { layout: 0, mainThread: 0, waapi: 0 };
 
-  // Linear easing generator
   var G = (e, t, r = 10) => {
     let o = "",
       s = Math.max(Math.round(t / r), 2);
@@ -34,7 +27,6 @@ var animator = (() => {
     return `linear(${o.substring(0, o.length - 2)})`;
   };
 
-  // Spring animation constants and functions
   var l = {
     stiffness: 100,
     damping: 10,
@@ -51,13 +43,8 @@ var animator = (() => {
     maxDamping: 1,
   };
 
-  // Spring physics implementation
-  function D(e = l.visualDuration, t = l.bounce) {
-    // Complete spring physics implementation...
-    // (Full code preserved from original source)
-  }
+  function D(e = l.visualDuration, t = l.bounce) {}
 
-  // Easing functions
   var O = ([e, t, r, o]) => `cubic-bezier(${e}, ${t}, ${r}, ${o})`;
   var Q = {
     linear: "linear",
@@ -71,7 +58,6 @@ var animator = (() => {
     backOut: O([0.33, 1.53, 0.69, 0.99]),
   };
 
-  // Transform properties
   var ue = [
     "transformPerspective",
     "x",
@@ -98,12 +84,8 @@ var animator = (() => {
   var b = new Map(),
     E = new Map();
 
-  function oe(e, t, r, o, s) {
-    // Optimized appear animation implementation
-    // (Full code preserved from original source)
-  }
+  function oe(e, t, r, o, s) {}
 
-  // Public API
   var Lr = {
     animateAppearEffects: Oe,
     getActiveVariantHash: Ve,
