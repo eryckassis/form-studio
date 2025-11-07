@@ -1,7 +1,7 @@
-import './css/styles.css'
+import "./css/styles.css";
 
 // Add basic styling for content visibility
-const style = document.createElement('style')
+const style = document.createElement("style");
 style.textContent = `
   body {
     color: var(--token-ad9b4115-c8bf-4757-af13-005f7e571fb7, #000);
@@ -119,28 +119,25 @@ style.textContent = `
       grid-template-columns: repeat(2, 1fr);
     }
   }
-`
-document.head.appendChild(style)
+`;
+document.head.appendChild(style);
 
-console.log('🎨 Form Studio - Vite Edition')
+console.log("🎨 NORDIC - Vite Edition");
 
 // Load JS modules dynamically
 const scripts = [
-  '/src/js/init.js',
-  '/src/js/nested-links.js',
-  '/src/js/image-sizes.js',
-  '/src/js/url-params.js',
-  '/src/js/animator.js',
-  '/src/js/appear-animations.js',
-  '/src/js/locale-cache.js'
-]
+  "/src/js/init.js",
+  "/src/js/nested-links.js",
+  "/src/js/image-sizes.js",
+  "/src/js/url-params.js",
+  "/src/js/animator.js",
+  "/src/js/appear-animations.js",
+  "/src/js/locale-cache.js",
+];
 
-scripts.forEach(src => {
-  const script = document.createElement('script')
-  script.src = src
-  script.type = 'module'
-  document.body.appendChild(script)
-})
-
-
-
+scripts.forEach((src) => {
+  const script = document.createElement("script");
+  script.src = src;
+  script.type = "module";
+  document.body.appendChild(script);
+});
