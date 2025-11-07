@@ -1,8 +1,3 @@
-/**
- * Framer Appear Animations
- * Handles appear effect animations with data-framer-appear-id attribute
- */
-
 (() => {
   function c(i, o, m) {
     if (

@@ -1,8 +1,3 @@
-/**
- * Nested Links Handler
- * Handles click, auxiliary click, and keyboard events for nested links
- */
-
 (() => {
   function u() {
     function n(t, e, i) {

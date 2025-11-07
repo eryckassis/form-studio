@@ -1,8 +1,3 @@
-/**
- * Framer Editor Initialization
- * This script checks for the Framer editor and preloads necessary modules
- */
-
 try {
   if (localStorage.get("__framer_force_showing_editorbar_since")) {
     const n = document.createElement("link");

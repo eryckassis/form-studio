@@ -1,8 +1,3 @@
-/**
- * Locale Caching for Date and Number Formatting
- * Optimizes Intl API calls by caching results
- */
-
 (() => {
   function d(e) {
     let t = Date.prototype.toLocaleString,
@@ -21,16 +16,12 @@
           );
         });
 
-    // Number formatting caching
     let y = Number.prototype.toLocaleString;
     y &&
       (Number.prototype.toLocaleString = function (r, n) {
         let i = s(this, r, n);
         return u(e.current.Number.toLocaleString, i, () => y.call(this, r, n));
       });
-
-    // Intl.DateTimeFormat and Intl.NumberFormat caching
-    // (Full implementation preserved from original source)
   }
 
   function P(e, t) {

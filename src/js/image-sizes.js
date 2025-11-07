@@ -1,8 +1,3 @@
-/**
- * Image Sizes Rewriter
- * Handles responsive image sizes attribute rewriting
- */
-
 (() => {
   function i() {
     for (let e of document.querySelectorAll("[data-framer-original-sizes]")) {
