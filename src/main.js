@@ -1,6 +1,6 @@
 import "./css/styles.css";
+import "./js/framer-editor-check.js";
 
-// Add basic styling for content visibility
 const style = document.createElement("style");
 style.textContent = `
   body {
@@ -124,7 +124,6 @@ document.head.appendChild(style);
 
 console.log("🎨 NORDIC - Vite Edition");
 
-// Load JS modules dynamically
 const scripts = [
   "/src/js/init.js",
   "/src/js/nested-links.js",
